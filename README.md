@@ -1,36 +1,201 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FarmZy Public Site
 
-## Getting Started
+This repository contains the **public marketing website** for **FarmZy**.
+The site explains the platform, its features, and helps farmers and companies understand how FarmZy enables **direct B2B trade without middlemen**.
 
-First, run the development server:
+The project is built using **Next.js** and a modern frontend stack optimized for **SEO, performance, and scalability**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+# Tech Stack Overview
+
+## Next.js
+
+Next.js is the main framework used to build this website.
+
+Why we use it:
+
+* Server-Side Rendering (SSR) for better SEO
+* Static Site Generation (SSG) for fast page loading
+* Built-in routing system
+* Optimized image loading
+* Excellent integration with Vercel deployment
+
+This makes Next.js ideal for **startup landing pages and production web applications**.
+
+---
+
+## Tailwind CSS
+
+Tailwind CSS is a utility-first CSS framework used for styling.
+
+Why we use it:
+
+* Fast UI development
+* Small CSS bundle size
+* Easy responsive design
+* Consistent design system
+
+Example:
+
+```tsx
+<div className="text-2xl font-bold text-green-700">
+  Sell Crops Directly to Companies
+</div>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## shadcn/ui
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+shadcn/ui provides modern reusable UI components built on top of Radix UI and Tailwind CSS.
 
-## Learn More
+Why we use it:
 
-To learn more about Next.js, take a look at the following resources:
+* Accessible components
+* Customizable design
+* Clean and modern UI
+* Works perfectly with Tailwind
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Examples of components:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Buttons
+* Cards
+* Navigation menus
+* Dialogs
+* Forms
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Framer Motion
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Framer Motion is used for animations and smooth UI transitions.
+
+Why we use it:
+
+* Hero section animations
+* Scroll animations
+* Smooth transitions
+* Interactive UI
+
+Example:
+
+```tsx
+<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+  Welcome to FarmZy
+</motion.div>
+```
+
+---
+
+## Lucide Icons
+
+Lucide provides clean and consistent icons for the UI.
+
+Why we use it:
+
+* Lightweight icon library
+* Modern design
+* Easy integration with React
+
+Example:
+
+```tsx
+import { Tractor } from "lucide-react"
+```
+
+---
+
+# Project Structure
+
+```
+src
+ ├── app
+ │   ├── layout.tsx
+ │   ├── page.tsx
+ │
+ ├── components
+ │   ├── landing
+ │   │   ├── hero.tsx
+ │   │   ├── features.tsx
+ │   │   ├── how-it-works.tsx
+ │   │   └── cta.tsx
+ │
+ ├── lib
+ ├── styles
+ └── public
+```
+
+---
+
+# Getting Started
+
+## 1. Clone the repository
+
+```
+git clone https://github.com/your-username/farmzy-public-site.git
+cd farmzy-public-site
+```
+
+---
+
+## 2. Install dependencies
+
+```
+npm install
+```
+
+---
+
+## 3. Run the development server
+
+```
+npm run dev
+```
+
+Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+The page will automatically reload when you edit files.
+
+---
+
+# Development Workflow
+
+1. Start the development server
+2. Modify components inside `src/components`
+3. Update pages inside `src/app`
+4. Commit and push changes
+5. Vercel automatically deploys the latest version
+
+---
+
+# Future Improvements
+
+Planned additions to the public site include:
+
+* Google Analytics integration
+* SEO optimization
+* Blog or news section
+* Farmer success stories
+* Platform demo videos
+
+---
+
+# Purpose of This Website
+
+The FarmZy public site is designed to:
+
+* Explain the FarmZy platform
+* Show how farmers can sell directly to companies
+* Attract farmers, companies, and partners
+* Provide an overview of the FarmZy ecosystem
+
+---
+
+# License
+
+This project is part of the **FarmZy platform** developed as a system for enabling transparent farmer-to-company agricultural trade.
