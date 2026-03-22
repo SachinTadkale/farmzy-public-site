@@ -20,7 +20,7 @@ export default function MarketplacePreview() {
       <Container>
         <div className="text-center mb-12 sm:mb-16 space-y-4">
           <h2 className="text-3xl sm:text-4xl md:text-6xl">Visualizing the <span className="text-primaryitalic">Marketplace</span></h2>
-          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto px-4">Get a glimpse of the dashboard that empowers over 5,000 corporate buyers.</p>
+          <p className="text-base sm:text-lg text-text-secondary max-w-2xl mx-auto px-4">Get a glimpse of the dashboard designed for efficient direct trade.</p>
         </div>
 
         <motion.div

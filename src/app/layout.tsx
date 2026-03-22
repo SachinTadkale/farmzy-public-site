@@ -13,7 +13,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://farmzy.vercel.app"),
+  metadataBase: new URL("https://farmzy-tan.vercel.app"),
 
   title: {
     default: "FarmZy - Direct Farmer to Company Marketplace in India",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     title: "FarmZy - Sell Crops Directly to Companies",
     description:
       "No middlemen. Better prices. Transparent agriculture trade. FarmZy connects farmers and companies across India.",
-    url: "https://farmzy.vercel.app",
+    url: "https://farmzy-tan.vercel.app",
     siteName: "FarmZy",
     locale: "en_IN",
     type: "website",

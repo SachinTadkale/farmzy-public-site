@@ -9,19 +9,19 @@ import { Store, Workflow, BrainCircuit, Info } from "lucide-react";
 const FEATURES = [
   {
     title: "Digital Marketplace",
-    description: "Browse and trade verified agricultural produce from thousands of certified farmer collectives.",
+    description: "Browse and trade verified agricultural produce from direct farmer collectives.",
     icon: Store,
     size: "lg", // Large card
   },
   {
     title: "Service Discovery",
-    description: "Connect with logistics partners, warehousing solutions, and quality testing labs instantly.",
+    description: "Connect with logistics partners, warehousing solutions, and quality testing labs.",
     icon: Workflow,
     size: "sm",
   },
   {
     title: "AI Assistant",
-    description: "Get predictive pricing, crop health insights, and demand forecasting powered by our custom ML models.",
+    description: "Get predictive pricing and platform guidance powered by our custom ML models.",
     icon: BrainCircuit,
     size: "sm",
   },
@@ -52,7 +52,7 @@ export default function BentoFeatures() {
               <Store className="w-12 h-12 sm:w-16 sm:h-16 text-primary mb-4 sm:mb-6" />
               <h3 className="text-3xl sm:text-4xl mb-4 sm:mb-6">Digital Marketplace</h3>
               <p className="text-lg sm:text-xl text-text-secondary max-w-md">
-                Browse and trade verified agricultural produce from thousands of certified farmer collectives.
+                Browse and trade verified agricultural produce from direct farmer collectives.
                 Standardized quality checks and direct logistics included.
               </p>
             </AnimatedCard>
@@ -91,7 +91,7 @@ export default function BentoFeatures() {
                  </p>
               </div>
               <div className="mt-8 md:mt-0 px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-white/5 bg-white/5 text-xs sm:text-sm font-medium w-fit">
-                12,000+ Farmers Enrolled
+                🚀 Early Access Open
               </div>
             </AnimatedCard>
           </div>

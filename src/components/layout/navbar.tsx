@@ -33,24 +33,29 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center gap-x-12">
           {navLinks.map((link) => (
             <Link 
               key={link.name}
               href={link.href} 
-              className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+              className="text-sm font-medium text-text-secondary hover:text-primary transition-all duration-300 ease-in-out relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center space-x-4">
-          <button className="text-sm font-medium text-text-primary/80 hover:text-text-primary transition-colors">Log In</button>
-          <button className="px-5 py-2.5 rounded-full bg-primary text-background text-sm font-semibold hover:scale-105 transition-transform">
+        <div className="hidden md:flex items-center">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="px-5 py-2.5 rounded-full bg-primary text-background text-sm font-semibold shadow-lg shadow-primary/20"
+          >
             Get Started
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Toggle */}
@@ -78,19 +83,22 @@ export default function Navbar() {
                 <Link 
                   key={link.name}
                   href={link.href} 
-                  className="text-lg font-medium text-text-secondary hover:text-text-primary transition-colors"
+                  className="text-lg font-medium text-text-secondary hover:text-primary transition-colors flex items-center justify-between group"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               ))}
-              <div className="pt-6 border-t border-white/5 flex flex-col space-y-4">
-                <button className="w-full py-3 text-center text-sm font-medium text-text-primary bg-white/5 rounded-xl">
-                  Log In
-                </button>
-                <button className="w-full py-4 text-center rounded-xl bg-primary text-background text-sm font-bold shadow-lg shadow-primary/20">
+              <div className="pt-6 border-t border-white/5">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  className="w-full py-4 text-center rounded-xl bg-primary text-background text-sm font-bold shadow-lg shadow-primary/20"
+                >
                   Get Started
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.div>
