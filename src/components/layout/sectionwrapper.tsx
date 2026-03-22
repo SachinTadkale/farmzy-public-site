@@ -21,7 +21,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         ref={ref}
         id={id}
         className={cn(
-          "py-16 md:py-24 relative overflow-hidden transition-colors duration-700",
+          (className?.includes("overflow-") ? "" : "overflow-hidden"),
           variants[variant],
           className
         )}
