@@ -4,12 +4,12 @@
 @theme {
   --font-outfit: var(--font-outfit);
 
-  --color-background: #020617;
-  --color-surface: #0F172A;
+  --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-primary: #7ED957;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #94A3B8;
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
 
   --radius-2xl: 1rem;
 
@@ -17,6 +17,22 @@
 
   --animate-marquee: marquee 30s linear infinite;
   --animate-marquee2: marquee2 30s linear infinite;
+}
+
+:root {
+  --background: #FFFFFF;
+  --surface: #F8FAFC;
+  --border: rgba(0, 0, 0, 0.1);
+  --text-primary: #020617;
+  --text-secondary: #64748B;
+}
+
+[data-theme='dark'] {
+  --background: #020617;
+  --surface: #0F172A;
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
 }
 
 @keyframes marquee {

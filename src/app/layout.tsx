@@ -80,6 +80,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { ThemeProvider } from "@/components/providers/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -87,7 +89,7 @@ export default function RootLayout({
 }>) {
 
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script
           id="gtm-script"
@@ -108,15 +110,22 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} font-outfit antialiased selection:bg-primary/30`}
       >
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        {children}
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -67,7 +67,7 @@ function ProblemCard({ problem, index }: { problem: typeof PROBLEMS[0], index: n
       className="problem-card group cursor-default"
       whileHover={{ y: -4, scale: 1.01 }}
     >
-      <div className="relative h-full p-8 sm:p-10 rounded-[2rem] border border-red-500/10 bg-red-500/[0.02] shadow-[0_10px_30px_rgba(0,0,0,0.3)] group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:border-red-500/30 transition-all duration-200 overflow-hidden">
+      <div className="relative h-full p-8 sm:p-10 rounded-[2rem] border border-red-500/10 bg-surface/30 shadow-2xl dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] group-hover:dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:border-red-500/30 transition-all duration-200 overflow-hidden">
         {/* Dynamic Red Spotlight */}
         <motion.div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
@@ -80,13 +80,13 @@ function ProblemCard({ problem, index }: { problem: typeof PROBLEMS[0], index: n
         />
         
         <div className="relative z-10 space-y-6">
-          <div className="w-fit p-4 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-all duration-200">
+          <div className="w-fit p-4 rounded-2xl bg-surface border border-border group-hover:bg-surface/80 transition-all duration-200">
             <problem.icon className={`w-8 h-8 sm:w-10 sm:h-10 ${problem.color} group-hover:scale-110 transition-transform duration-200`} style={{ filter: `drop-shadow(0 0 12px ${problem.color.includes('red') ? 'rgba(239,68,68,0.4)' : problem.color.includes('orange') ? 'rgba(251,146,60,0.4)' : 'rgba(250,204,21,0.4)'})` }} />
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">{problem.title}</h3>
-            <p className="text-gray-400 leading-relaxed text-sm sm:text-base">{problem.description}</p>
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">{problem.title}</h3>
+            <p className="text-text-secondary leading-relaxed text-sm sm:text-base">{problem.description}</p>
           </div>
         </div>
       </div>
@@ -99,51 +99,55 @@ export default function ProblemSection() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const mm = gsap.matchMedia();
+    let ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=100%",
-          pin: true,
-          scrub: 1,
-        },
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=100%",
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl.from(".problem-card", {
+          y: 100,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out",
+        });
       });
 
-      tl.from(".problem-card", {
-        y: 100,
-        opacity: 0,
-        stagger: 0.2,
-        ease: "power2.out",
+      mm.add("(max-width: 767px)", () => {
+        gsap.from(".problem-card", {
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+          y: 40,
+          opacity: 0,
+          stagger: 0.15,
+          duration: 0.6,
+          ease: "power2.out",
+        });
       });
-    });
+    }, sectionRef);
 
-    mm.add("(max-width: 767px)", () => {
-      gsap.from(".problem-card", {
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 85%",
-          end: "bottom 15%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        stagger: 0.15,
-        duration: 0.6,
-        ease: "power2.out",
-      });
-    });
-
-    return () => mm.revert();
+    return () => ctx.revert();
   }, []);
 
   return (
-    <SectionWrapper ref={sectionRef} id="problems" className="min-h-screen py-20 pb-40 px-6 sm:px-12 lg:px-24 bg-background overflow-hidden">
-      <Container>
+    <SectionWrapper id="problems" className="min-h-screen py-20 px-6 sm:px-12 lg:px-24 bg-background overflow-hidden">
+      <div ref={sectionRef} className="w-full h-full">
+        <Container>
         <div className="text-center mb-16 sm:mb-24">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-text-primary">
             Traditional Agriculture <br />
             <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent italic">is Broken.</span>
           </h2>
@@ -158,7 +162,8 @@ export default function ProblemSection() {
             <ProblemCard key={i} problem={problem} index={i} />
           ))}
         </div>
-      </Container>
+        </Container>
+      </div>
     </SectionWrapper>
   );
 }

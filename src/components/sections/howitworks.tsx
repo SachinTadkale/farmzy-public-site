@@ -12,7 +12,6 @@ import {
   Briefcase,
   History,
   Star,
-  User,
   ArrowUpRight,
   Info
 } from "lucide-react";
@@ -59,10 +58,10 @@ function ListingUI() {
           <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-lg">
             <Upload size={20} className="text-primary" />
           </div>
-          <h3 className="text-white font-bold text-lg tracking-tight">New Listing</h3>
+          <h3 className="text-text-primary font-bold text-lg tracking-tight">New Listing</h3>
         </div>
         <div className="flex flex-col items-end pt-1">
-          <span className="px-3 py-1 bg-primary text-surface text-[10px] rounded-lg border border-primary/30 uppercase font-black tracking-widest shadow-lg shadow-primary/20">Active</span>
+          <span className="px-3 py-1 bg-primary text-background text-[10px] rounded-lg border border-primary/30 uppercase font-black tracking-widest shadow-lg shadow-primary/20">Active</span>
           <span className="text-[10px] text-primary font-bold mt-2 tracking-wide">0% Middleman Fee</span>
         </div>
       </div>
@@ -71,14 +70,14 @@ function ListingUI() {
         <div className="space-y-2">
           <div className="flex justify-between items-end">
             <label className="text-[10px] text-text-secondary uppercase tracking-widest font-bold">Wheat (Grade A)</label>
-            <span className="text-[9px] text-white/40 flex items-center">
+            <span className="text-[9px] text-text-primary/40 flex items-center">
               <Info size={10} className="mr-1" />
               Visible to verified only
             </span>
           </div>
-          <div className="h-14 w-full bg-white/5 rounded-2xl border border-white/10 flex items-center px-5 relative overflow-hidden group/input">
+          <div className="h-14 w-full bg-surface/50 rounded-2xl border border-border flex items-center px-5 relative overflow-hidden group/input">
             <span className="text-primary font-bold mr-2 text-lg">₹</span>
-            <span className="text-white font-display text-2xl">2,450</span>
+            <span className="text-text-primary font-display text-2xl">2,450</span>
             <motion.div
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 0.8, repeat: Infinity }}
@@ -88,17 +87,17 @@ function ListingUI() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
+          <div className="p-4 bg-surface/50 rounded-2xl border border-border">
             <span className="block text-[10px] text-text-secondary uppercase mb-1">Quantity</span>
-            <span className="text-white font-bold">50 Tons</span>
+            <span className="text-text-primary font-bold">50 Tons</span>
           </div>
-          <div className="p-4 bg-white/5 rounded-2xl border border-white/10 relative overflow-hidden">
+          <div className="p-4 bg-surface/50 rounded-2xl border border-border relative overflow-hidden">
             <span className="block text-[10px] text-text-secondary uppercase mb-1">Harvest</span>
-            <span className="text-white font-bold">Feb 2026</span>
+            <span className="text-text-primary font-bold">Feb 2026</span>
           </div>
         </div>
 
-        <button className="w-full h-14 bg-primary rounded-2xl text-surface font-bold text-sm shadow-[0_10px_30px_rgba(126,217,87,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+        <button className="w-full h-14 bg-primary rounded-2xl text-background font-bold text-sm shadow-[0_10px_30px_rgba(126,217,87,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
           Publish Listing
         </button>
       </div>
@@ -128,7 +127,7 @@ function BuyersUI() {
     <div className="w-full h-full flex flex-col justify-center space-y-4">
       <div className="flex justify-between items-center px-2 mb-4">
         <div className="space-y-1">
-          <h3 className="text-white font-bold text-base tracking-tight flex items-center">
+          <h3 className="text-text-primary font-bold text-base tracking-tight flex items-center">
             Live Buyer Demand
           </h3>
           <p className="text-[11px] text-primary font-bold uppercase tracking-wider">3 New Buyers Interested</p>
@@ -149,14 +148,14 @@ function BuyersUI() {
             initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.15 }}
-            className={`p-4 rounded-2xl ${demand.isBest ? 'bg-primary/10 border-primary/40' : 'bg-white/5 border-white/10'} border backdrop-blur-xl flex items-center justify-between group cursor-pointer hover:bg-white/15 transition-all shadow-lg`}
+            className={`p-4 rounded-2xl ${demand.isBest ? 'bg-primary/10 border-primary/40' : 'bg-surface/50 border-border'} border backdrop-blur-xl flex items-center justify-between group cursor-pointer hover:bg-surface/80 transition-all shadow-lg`}
           >
             <div className="flex items-center space-x-4">
-              <div className={`w-10 h-10 rounded-full ${demand.isBest ? 'bg-primary/20' : 'bg-white/5'} flex items-center justify-center border ${demand.isBest ? 'border-primary/30' : 'border-white/10'}`}>
-                <Briefcase size={18} className={demand.isBest ? 'text-primary' : 'text-white/40'} />
+              <div className={`w-10 h-10 rounded-full ${demand.isBest ? 'bg-primary/20' : 'bg-surface/30'} flex items-center justify-center border ${demand.isBest ? 'border-primary/30' : 'border-border'}`}>
+                <Briefcase size={18} className={demand.isBest ? 'text-primary' : 'text-text-primary/40'} />
               </div>
               <div>
-                <h4 className="text-white font-bold text-sm tracking-tight flex items-center">
+                <h4 className="text-text-primary font-bold text-sm tracking-tight flex items-center">
                   {demand.name}
                   {demand.verified && <ShieldCheck size={12} className="ml-1 text-primary" />}
                 </h4>
@@ -166,7 +165,7 @@ function BuyersUI() {
               </div>
             </div>
             <div className="text-right">
-              <span className={`block font-display font-bold text-lg ${demand.isBest ? 'text-primary' : 'text-white'}`}>₹{demand.offer}</span>
+              <span className={`block font-display font-bold text-lg ${demand.isBest ? 'text-primary' : 'text-text-primary'}`}>₹{demand.offer}</span>
               <span className="text-[9px] text-text-secondary opacity-60">/ quintal</span>
             </div>
           </motion.div>
@@ -176,11 +175,11 @@ function BuyersUI() {
       <div className="pt-4 flex justify-center scale-110">
         <div className="flex -space-x-2">
           {[1, 2, 3, 4].map(i => (
-            <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-[12px] font-black text-white shadow-2xl relative z-10">
+            <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-surface flex items-center justify-center text-[12px] font-black text-text-primary shadow-2xl relative z-10">
               {i === 4 ? (
-                <span className="bg-primary text-surface w-full h-full rounded-full flex items-center justify-center">+12</span>
+                <span className="bg-primary text-background w-full h-full rounded-full flex items-center justify-center">+12</span>
               ) : (
-                <User size={16} className="opacity-40" />
+                <Briefcase size={16} className="text-text-primary/40" />
               )}
             </div>
           ))}
@@ -196,9 +195,9 @@ function PaymentsUI() {
       <div className="space-y-1">
         <div className="flex justify-between items-center">
           <span className="text-[10px] text-primary font-bold uppercase tracking-[0.2em]">Transaction Summary</span>
-          <span className="text-[10px] text-white/40 font-mono tracking-tight">Order #FZ-48291</span>
+          <span className="text-[10px] text-text-primary/40 font-mono tracking-tight">Order #FZ-48291</span>
         </div>
-        <h3 className="text-2xl font-display text-white">ITC Limited</h3>
+        <h3 className="text-2xl font-display text-text-primary">ITC Limited</h3>
         <p className="text-[11px] text-text-secondary">Wheat (Grade A) • 50 Tons</p>
       </div>
 
@@ -211,14 +210,14 @@ function PaymentsUI() {
           <div key={i} className="flex items-center space-x-4 relative">
             {i < 2 && <div className="absolute left-[11px] top-8 w-[2px] h-6 bg-primary/30" />}
             <div className={`w-6 h-6 rounded-full flex items-center justify-center shadow-lg transition-transform ${item.status === 'completed' ? 'bg-primary scale-110' : 'bg-primary/20 border-2 border-primary/50 animate-pulse'}`}>
-              <CheckCircle2 size={14} className={item.status === 'completed' ? 'text-surface' : 'text-primary'} />
+              <CheckCircle2 size={14} className={item.status === 'completed' ? 'text-background' : 'text-primary'} />
             </div>
-            <span className={`text-sm font-bold tracking-tight ${item.status === 'completed' ? 'text-white' : 'text-primary'}`}>{item.label}</span>
+            <span className={`text-sm font-bold tracking-tight ${item.status === 'completed' ? 'text-text-primary' : 'text-primary'}`}>{item.label}</span>
           </div>
         ))}
       </div>
 
-      <div className="pt-6 mt-2 border-t border-white/10">
+      <div className="pt-6 mt-2 border-t border-border">
         <div className="flex justify-between items-center">
           <div className="space-y-1">
             <span className="text-[12px] text-primary font-bold">₹1,22,500</span>
@@ -228,7 +227,7 @@ function PaymentsUI() {
             <div className="px-3 py-1 bg-green-500/10 text-green-500 text-[9px] rounded-full border border-green-500/20 font-bold">
               SUCCESS
             </div>
-            <span className="text-[8px] text-white/30 block mt-1 tracking-tighter">Paid on 12 Feb, 2026</span>
+            <span className="text-[8px] text-text-primary/30 block mt-1 tracking-tighter">Paid on 12 Feb, 2026</span>
           </div>
         </div>
       </div>
@@ -241,10 +240,10 @@ function GrowthUI() {
     <div className="w-full h-full flex flex-col justify-center space-y-6">
       <div className="flex items-center space-x-5 mb-4">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/40 flex items-center justify-center shadow-2xl shadow-primary/30 border border-white/20">
-          <Briefcase size={36} className="text-surface" strokeWidth={1.5} />
+          <Briefcase size={36} className="text-background" strokeWidth={1.5} />
         </div>
         <div className="space-y-1">
-          <h4 className="text-white font-bold text-xl leading-none">Ramesh Patil</h4>
+          <h4 className="text-text-primary font-bold text-xl leading-none">Ramesh Patil</h4>
           <p className="text-[12px] text-text-secondary flex items-center font-medium">
             Nashik, Maharashtra • <Star size={12} className="text-yellow-500 fill-yellow-500 mx-1" /> 4.8/5
           </p>
@@ -262,9 +261,9 @@ function GrowthUI() {
           { label: "Repeat", val: "5", icon: Users },
           { label: "Disputes", val: "0", icon: ShieldCheck }
         ].map((stat, i) => (
-          <div key={i} className="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+          <div key={i} className="p-3 rounded-2xl bg-surface/50 border border-border text-center">
             <span className="block text-[8px] text-text-secondary uppercase mb-1">{stat.label}</span>
-            <span className="text-white font-bold text-sm tracking-tight">{stat.val}</span>
+            <span className="text-text-primary font-bold text-sm tracking-tight">{stat.val}</span>
           </div>
         ))}
       </div>
@@ -276,8 +275,8 @@ function GrowthUI() {
             { title: "Sold 50 Tons to ITC Limited", time: "2 days ago" },
             { title: "Repeat Order from Reliance", time: "1 week ago" }
           ].map((act, i) => (
-            <div key={i} className="px-4 py-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between group hover:border-primary/20 transition-all">
-              <span className="text-[11px] text-white/80 font-medium">{act.title}</span>
+            <div key={i} className="px-4 py-3 rounded-xl bg-surface/50 border border-border/50 flex items-center justify-between group hover:border-primary/20 transition-all">
+              <span className="text-[11px] text-text-primary/80 font-medium">{act.title}</span>
               <ArrowUpRight size={12} className="text-primary opacity-40 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
@@ -298,7 +297,7 @@ function StepVisual({ activeStep }: { activeStep: number }) {
   ];
 
   return (
-    <div className="relative w-full max-w-[420px] h-[440px] p-8 sm:p-10 rounded-[40px] overflow-hidden bg-white/5 border border-white/10 backdrop-blur-2xl shadow-2xl flex flex-col items-center justify-center selection:bg-primary/20 transition-all duration-300">
+    <div className="relative w-full max-w-[420px] h-[440px] p-8 sm:p-10 rounded-[40px] overflow-hidden bg-surface/80 border border-border backdrop-blur-2xl shadow-2xl flex flex-col items-center justify-center selection:bg-primary/20 transition-all duration-300">
       {/* Animated Breathing Background Glow */}
       <motion.div
         animate={{
@@ -372,7 +371,7 @@ function StepContent({ step, index, setActiveStep }: { step: any, index: number,
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl leading-[1.1] font-display text-white transition-colors duration-500 text-wrap-balance">
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl leading-[1.1] font-display text-text-primary transition-colors duration-500 text-wrap-balance">
             {step.title}
           </h2>
           <p className="text-lg sm:text-xl text-text-secondary leading-relaxed max-w-lg mx-auto lg:mx-0 opacity-80 font-medium">
@@ -382,7 +381,7 @@ function StepContent({ step, index, setActiveStep }: { step: any, index: number,
 
         {/* Action / Value Tag */}
         <div className="pt-4 flex flex-wrap justify-center lg:justify-start gap-4">
-          <div className="px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-primary font-bold text-[11px] uppercase tracking-[0.2em] bg-gradient-to-r from-primary/10 to-transparent shadow-xl">
+          <div className="px-4 py-2.5 bg-surface border border-border rounded-xl text-primary font-bold text-[11px] uppercase tracking-[0.2em] bg-gradient-to-r from-primary/10 to-transparent shadow-xl">
             {step.label}
           </div>
         </div>
@@ -402,7 +401,7 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <SectionWrapper id="how-it-works" className="p-0 bg-surface relative overflow-visible selection:bg-primary selection:text-surface">
+    <SectionWrapper id="how-it-works" className="py-24 sm:py-32 overflow-visible bg-background relative selection:bg-primary selection:text-background font-outfit">
       <Container>
         <div className="flex flex-col lg:flex-row lg:gap-20">
           {/* Left Side: Story Navigation */}
@@ -418,7 +417,7 @@ export default function HowItWorks() {
           </div>
 
           {/* Right Side: Sticky Visual Container (Desktop Only) */}
-          <div className="hidden lg:block w-1/2 sticky top-0 h-screen overflow-hidden">
+          <div className="hidden lg:block w-1/2 sticky top-24 h-[calc(100vh-6rem)] overflow-hidden">
             <div className="h-full flex items-center justify-center p-12">
               <StepVisual activeStep={activeStep} />
             </div>

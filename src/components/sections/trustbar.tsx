@@ -10,7 +10,7 @@ const LOGOS = [
 
 export default function TrustBar() {
   return (
-    <div className="py-12 sm:py-20 border-y border-white/5 bg-background/50 overflow-hidden">
+    <div className="py-12 sm:py-20 border-y border-border bg-surface/50 overflow-hidden font-outfit">
       <Container>
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-text-primary/80">

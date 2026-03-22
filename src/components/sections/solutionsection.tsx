@@ -74,7 +74,7 @@ function SolutionCard({ solution, index }: { solution: typeof SOLUTIONS[0], inde
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`solution-card group relative p-8 sm:p-12 rounded-[2.5rem] border border-white/10 bg-white/[0.03] backdrop-blur-md overflow-hidden hover:border-primary/40 transition-all duration-200 cursor-pointer ${solution.gridClass}`}
+      className={`solution-card group relative p-8 sm:p-12 rounded-[2.5rem] border border-border bg-surface/50 backdrop-blur-md overflow-hidden hover:border-primary/40 transition-all duration-200 cursor-pointer ${solution.gridClass}`}
     >
       {/* Magnetic Spotlight */}
       <motion.div
@@ -97,7 +97,7 @@ function SolutionCard({ solution, index }: { solution: typeof SOLUTIONS[0], inde
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">{solution.title}</h3>
+          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">{solution.title}</h3>
           <p className="text-text-secondary leading-relaxed max-w-sm mx-auto text-base sm:text-lg">
             {solution.description}
           </p>
@@ -150,7 +150,8 @@ export default function SolutionSection() {
   }, []);
 
   return (
-    <SectionWrapper ref={sectionRef} id="solutions" className="py-24 sm:py-32 bg-[#020617] relative overflow-hidden">
+    <SectionWrapper id="solutions" className="py-20 bg-background relative overflow-hidden">
+      <div ref={sectionRef}>
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -z-10" />
@@ -165,7 +166,7 @@ export default function SolutionSection() {
           >
             <span>The Solution</span>
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-text-primary leading-tight">
             A radical shift in <span className="text-primary italic">how we trade.</span>
           </h2>
           <p className="text-lg text-text-secondary leading-relaxed">
@@ -179,6 +180,7 @@ export default function SolutionSection() {
           ))}
         </div>
       </Container>
+      </div>
     </SectionWrapper>
   );
 }

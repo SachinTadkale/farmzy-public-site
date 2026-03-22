@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Container from "../layout/container";
 import SectionWrapper from "../layout/sectionwrapper";
 import AnimatedCard from "../ui/animatedcard";
-import { Store, Workflow, BrainCircuit, Info } from "lucide-react";
+import { Store, Workflow, BrainCircuit, Info, Activity } from "lucide-react";
 
 const FEATURES = [
   {
@@ -35,7 +35,7 @@ const FEATURES = [
 
 export default function BentoFeatures() {
   return (
-    <SectionWrapper id="features">
+    <SectionWrapper id="features" className="py-20">
       <Container>
         <div className="text-center mb-20 space-y-4">
           <p className="text-primary font-bold tracking-widest uppercase text-sm">Powerful Ecosystem</p>
@@ -90,8 +90,11 @@ export default function BentoFeatures() {
                    Stay informed with real-time updates from verified sources.
                  </p>
               </div>
-              <div className="mt-8 md:mt-0 px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-white/5 bg-white/5 text-xs sm:text-sm font-medium w-fit">
-                🚀 Early Access Open
+              <div className="mt-8 md:mt-0 px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-border bg-surface/50 text-xs sm:text-sm font-medium w-fit">
+              <div className="flex items-center space-x-2">
+                <Activity className="w-3 h-3 text-primary animate-pulse" />
+                <span className="text-text-primary">Early Access Open</span>
+              </div>
               </div>
             </AnimatedCard>
           </div>
