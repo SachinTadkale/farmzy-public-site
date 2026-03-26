@@ -81,6 +81,8 @@ export const metadata: Metadata = {
 };
 
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { WaitlistProvider } from "@/components/providers/waitlist-provider";
+import WaitlistModal from "@/components/waitlist/WaitlistModal";
 
 export default function RootLayout({
   children,
@@ -116,15 +118,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-          {children}
+          <WaitlistProvider>
+            <noscript>
+              <iframe
+                src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+              />
+            </noscript>
+            {children}
+            <WaitlistModal />
+          </WaitlistProvider>
         </ThemeProvider>
       </body>
     </html>

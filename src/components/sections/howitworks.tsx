@@ -9,7 +9,7 @@ import {
   Users,
   ShieldCheck,
   CheckCircle2,
-  Briefcase,
+  Building2,
   History,
   Star,
   ArrowUpRight,
@@ -152,7 +152,7 @@ function BuyersUI() {
           >
             <div className="flex items-center space-x-4">
               <div className={`w-10 h-10 rounded-full ${demand.isBest ? 'bg-primary/20' : 'bg-surface/30'} flex items-center justify-center border ${demand.isBest ? 'border-primary/30' : 'border-border'}`}>
-                <Briefcase size={18} className={demand.isBest ? 'text-primary' : 'text-text-primary/40'} />
+                <Building2 size={18} className={demand.isBest ? 'text-primary' : 'text-text-primary/40'} />
               </div>
               <div>
                 <h4 className="text-text-primary font-bold text-sm tracking-tight flex items-center">
@@ -179,7 +179,7 @@ function BuyersUI() {
               {i === 4 ? (
                 <span className="bg-primary text-background w-full h-full rounded-full flex items-center justify-center">+12</span>
               ) : (
-                <Briefcase size={16} className="text-text-primary/40" />
+                <Building2 size={16} className="text-text-primary/40" />
               )}
             </div>
           ))}
@@ -240,7 +240,7 @@ function GrowthUI() {
     <div className="w-full h-full flex flex-col justify-center space-y-6">
       <div className="flex items-center space-x-5 mb-4">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/40 flex items-center justify-center shadow-2xl shadow-primary/30 border border-white/20">
-          <Briefcase size={36} className="text-background" strokeWidth={1.5} />
+          <Building2 size={36} className="text-background" strokeWidth={1.5} />
         </div>
         <div className="space-y-1">
           <h4 className="text-text-primary font-bold text-xl leading-none">Ramesh Patil</h4>

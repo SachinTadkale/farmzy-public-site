@@ -6,8 +6,10 @@ import Link from "next/link";
 import Container from "../layout/container";
 import SectionWrapper from "../layout/sectionwrapper";
 import { ArrowRight, Zap } from "lucide-react";
+import { useWaitlist } from "../providers/waitlist-provider";
 
 export default function FinalCTA() {
+  const { openModal } = useWaitlist();
   const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -94,25 +96,15 @@ export default function FinalCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-6">
               <motion.div className="relative group/btn w-full sm:w-auto">
                 <motion.button
+                  onClick={openModal}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="w-full px-10 py-5 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(126,217,87,0.4)] transition-all duration-300"
+                  className="w-full px-10 py-5 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(126,217,87,0.4)] transition-all duration-300 flex items-center justify-center cursor-pointer"
                 >
-                  <Link href="/contact" className="flex items-center justify-center">
-                    Start Selling Directly
-                    <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
-                  </Link>
+                  Join Waitlist
+                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </motion.button>
-              </motion.div>
-
-              <motion.div className="w-full sm:w-auto">
-                <Link
-                  href="/cta"
-                  className="w-full block px-10 py-5 rounded-full border border-border bg-surface/50 backdrop-blur-md text-text-primary font-semibold text-lg hover:bg-surface transition-all duration-300 shadow-xl text-center"
-                >
-                  Join as Buyer
-                </Link>
               </motion.div>
             </div>
 

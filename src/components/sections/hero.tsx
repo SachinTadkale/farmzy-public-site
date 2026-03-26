@@ -54,34 +54,6 @@ export default function Hero() {
             Eliminate middlemen, secure fair pricing, and build a transparent agri-supply chain.
           </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6 pt-10">
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto"
-            >
-              <Link
-                href="/#final-cta"
-                className="group flex items-center justify-center px-10 py-5 bg-primary text-background font-bold rounded-full shadow-[0_0_50px_rgba(126,217,87,0.3)] hover:shadow-[0_0_60px_rgba(126,217,87,0.5)] transition-all duration-300 transform-gpu text-lg w-full"
-              >
-                Start Selling Directly
-                <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="w-full sm:w-auto"
-            >
-              <Link
-                href="/cta"
-                className="w-full block px-10 py-5 rounded-full border border-border bg-surface/50 backdrop-blur-md text-text-primary font-semibold text-lg hover:bg-surface transition-all duration-300 shadow-xl text-center"
-              >
-                Join as Buyer
-              </Link>
-            </motion.div>
-          </div>
         </motion.div>
 
         <motion.div
