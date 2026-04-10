@@ -31,6 +31,13 @@
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
 
+  --color-surface: hsl(var(--surface));
+
+  --shadow-soft: none;
+  --shadow-soft-xl: none;
+  --shadow-soft-2xl: none;
+  --shadow-glow: none;
+
   --color-farm-green: #2E7D32;
   --color-farm-dark: #1B5E20;
   --color-farm-bg: #F1F8E9;
@@ -65,6 +72,7 @@
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   --ring: 142 46% 34%;
+  --surface: 0 0% 100%;
   --radius: 0.375rem;
 }
 
@@ -88,6 +96,7 @@
   --border: 180 12% 18%;
   --input: 180 12% 18%;
   --ring: 119 19% 42%;
+  --surface: 180 10% 12%;
 }
 
 @keyframes marquee {
@@ -112,7 +121,8 @@
 
 @layer base {
   * {
-    border-color: hsl(var(--border) / 1); /* Ensure border color uses the variable */
+    border-color: hsl(var(--border) / 1);
+    /* Ensure border color uses the variable */
     border-width: 0;
   }
 
@@ -231,6 +241,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: 1;
     }
@@ -275,4 +286,4 @@ html.lenis body {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
-}
+}
