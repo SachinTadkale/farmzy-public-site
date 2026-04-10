@@ -38,9 +38,9 @@ export default function FinalCTA() {
   }
 
   return (
-    <SectionWrapper id="final-cta" className="py-20 overflow-hidden bg-background relative">
+    <SectionWrapper id="final-cta" className="py-12 sm:py-20 overflow-hidden bg-background relative">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[400px] bg-primary/5 rounded-full blur-[120px] -z-10" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[1000px] h-[300px] bg-primary/10 rounded-full blur-[100px] -z-10" />
       </div>
 
       <Container className="relative z-10">
@@ -52,10 +52,10 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="group relative max-w-[900px] mx-auto p-12 sm:p-20 rounded-[2.5rem] border border-border bg-gradient-to-br from-surface to-background backdrop-blur-3xl overflow-hidden text-center shadow-2xl"
+          className="group relative max-w-[800px] mx-auto p-8 sm:p-12 rounded-[2rem] border border-border bg-surface/40 backdrop-blur-3xl overflow-hidden text-center shadow-2xl"
         >
           {/* Inner Glow Effect */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-text-primary/10 to-transparent" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
           {/* Mouse Spotlight */}
           <motion.div
@@ -63,58 +63,61 @@ export default function FinalCTA() {
             style={{
               background: useTransform(
                 [mouseX, mouseY],
-                ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(126, 217, 87, 0.08), transparent 70%)`
+                ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(46, 125, 50, 0.08), transparent 70%)`
               ),
             }}
           />
 
           {/* Animated Noise Pattern */}
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none" />
+          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none" />
 
-          <div className="relative z-10 space-y-6 sm:space-y-8">
+          <div className="relative z-10 space-y-5 sm:space-y-6">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="mx-auto w-24 h-24 rounded-[2rem] bg-primary/10 flex items-center justify-center mb-6"
+              className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-primary/10 flex items-center justify-center border border-primary/20 shadow-inner"
             >
-              <Zap className="w-12 h-12 text-primary fill-primary/20" />
+              <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-primary fill-primary/20" />
             </motion.div>
 
             <motion.h2
-              className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tighter text-text-primary leading-[1.1]"
+              className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter text-text-primary leading-[1]"
             >
-              Ready to <span className="text-primary italic mr-1 ">FarmZy</span> your business?
+              Ready to <span className="text-primary italic">FarmZy</span> <br className="hidden sm:block" /> your business?
             </motion.h2>
 
             <motion.p
-              className="text-lg sm:text-xl text-text-secondary max-w-[600px] mx-auto leading-relaxed"
+              className="text-sm sm:text-lg text-text-secondary max-w-[500px] mx-auto leading-relaxed opacity-80"
             >
               Join the future of Indian agriculture. Direct trade, secure payments, and total transparency at your fingertips.
             </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-6">
-              <motion.div className="relative group/btn w-full sm:w-auto">
-                <motion.button
-                  onClick={openModal}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  className="w-full px-10 py-5 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(126,217,87,0.4)] transition-all duration-300 flex items-center justify-center cursor-pointer"
-                >
-                  Join Waitlist
-                  <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
-                </motion.button>
-              </motion.div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+              <motion.button
+                onClick={openModal}
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="btn-primary w-full sm:w-auto !h-12 !px-8 !rounded-xl !text-sm"
+              >
+                Join the Waitlist
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </motion.button>
+              
+              <button className="btn-secondary w-full sm:w-auto !h-12 !px-8 !rounded-xl !text-sm">
+                Contact Sales
+              </button>
             </div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.3 }}
-              className="text-[8px] sm:text-[10px] font-bold tracking-[0.2em] uppercase pt-8 sm:pt-10 text-text-primary"
+              whileInView={{ opacity: 0.4 }}
+              className="pt-6 sm:pt-8"
             >
-              Early access • Limited onboarding
-            </motion.p>
+               <p className="text-[10px] sm:text-[11px] font-black tracking-[0.2em] uppercase text-text-primary/60">
+                Limited early access • priority for farmer collectives
+              </p>
+            </motion.div>
           </div>
         </motion.div>
       </Container>

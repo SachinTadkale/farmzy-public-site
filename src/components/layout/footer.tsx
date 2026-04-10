@@ -13,8 +13,8 @@ export default function Footer() {
       <Container>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 lg:gap-8">
           <div className="col-span-2 md:col-span-3 lg:col-span-2 space-y-6 text-center lg:text-left">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-text-primary block">
-              Farm<span className="text-primary">Zy</span>
+            <Link href="/" className="text-2xl font-black tracking-tighter text-text-primary block">
+              Farm<span className="text-primary italic">Zy</span>
             </Link>
             <p className="text-text-secondary text-sm max-w-xs mx-auto lg:mx-0">
               Empowering the agricultural ecosystem through technology, transparency, and direct trade. 

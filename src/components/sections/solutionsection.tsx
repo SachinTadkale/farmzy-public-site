@@ -82,7 +82,7 @@ function SolutionCard({ solution, index }: { solution: typeof SOLUTIONS[0], inde
         style={{
           background: useTransform(
             [mouseX, mouseY],
-            ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(126,217,87,0.15), transparent 70%)`
+            ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(46, 125, 50, 0.1), transparent 70%)`
           ),
         }}
       />
@@ -97,8 +97,8 @@ function SolutionCard({ solution, index }: { solution: typeof SOLUTIONS[0], inde
         </div>
 
         <div className="space-y-4">
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">{solution.title}</h3>
-          <p className="text-text-secondary leading-relaxed max-w-sm mx-auto text-base sm:text-lg">
+          <h3 className="text-2xl sm:text-4xl font-black tracking-tighter text-text-primary leading-tight">{solution.title}</h3>
+          <p className="text-text-secondary leading-relaxed max-w-sm mx-auto text-base sm:text-lg opacity-80">
             {solution.description}
           </p>
         </div>
@@ -162,14 +162,14 @@ export default function SolutionSection() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-widest uppercase shadow-[0_0_15px_rgba(126,217,87,0.15)]"
+            className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(46,125,50,0.1)]"
           >
             <span>The Solution</span>
           </motion.div>
-          <h2 className="text-4xl sm:text-6xl font-bold tracking-tight text-text-primary leading-tight">
-            A radical shift in <span className="text-primary italic">how we trade.</span>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter text-text-primary leading-[0.95]">
+            A radical shift in <br className="hidden sm:block" /> <span className="text-primary italic">how we trade.</span>
           </h2>
-          <p className="text-lg text-text-secondary leading-relaxed">
+          <p className="text-lg sm:text-2xl text-text-secondary leading-relaxed opacity-80">
             FarmZy bypasses the friction of traditional supply chains, ensuring higher margins for growers and lower costs for buyers.
           </p>
         </div>

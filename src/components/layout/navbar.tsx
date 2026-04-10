@@ -72,7 +72,7 @@ export default function Navbar() {
           <div className="flex-1 flex justify-start">
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tighter text-text-primary hover:opacity-80 transition-opacity"
+              className="text-2xl font-black tracking-tighter text-text-primary hover:opacity-80 transition-opacity"
             >
               Farm<span className="text-primary italic">Zy</span>
             </Link>
