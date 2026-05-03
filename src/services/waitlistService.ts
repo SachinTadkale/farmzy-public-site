@@ -62,7 +62,7 @@ const getErrorMessage = (error: WaitlistApiError | null) => {
 };
 
 export async function joinWaitlist(payload: WaitlistPayload) {
-  const response = await fetch(`${getBackendUrl()}/leads`, {
+  const response = await fetch(`${getBackendUrl()}/leads/addLead`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
