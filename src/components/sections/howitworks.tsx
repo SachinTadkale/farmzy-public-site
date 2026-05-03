@@ -9,7 +9,7 @@ import {
   Users,
   ShieldCheck,
   CheckCircle2,
-  Briefcase,
+  Building2,
   History,
   Star,
   ArrowUpRight,
@@ -52,17 +52,17 @@ const STEPS = [
 
 function ListingUI() {
   return (
-    <div className="w-full h-full flex flex-col justify-center space-y-6">
+    <div className="w-full h-full flex flex-col justify-center space-y-5">
       <div className="flex justify-between items-start px-2 mb-2">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-lg">
-            <Upload size={20} className="text-primary" />
+          <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 shadow-lg">
+            <Upload size={18} className="text-primary" />
           </div>
-          <h3 className="text-text-primary font-bold text-lg tracking-tight">New Listing</h3>
+          <h3 className="text-text-primary font-black text-lg tracking-tight">New Listing</h3>
         </div>
         <div className="flex flex-col items-end pt-1">
-          <span className="px-3 py-1 bg-primary text-background text-[10px] rounded-lg border border-primary/30 uppercase font-black tracking-widest shadow-lg shadow-primary/20">Active</span>
-          <span className="text-[10px] text-primary font-bold mt-2 tracking-wide">0% Middleman Fee</span>
+          <span className="px-3 py-1 bg-primary text-background text-[10px] rounded-lg border border-primary/30 uppercase font-black tracking-widest">Active</span>
+          <span className="text-[10px] text-primary font-bold mt-2 tracking-wide italic">0% Middleman Fee</span>
         </div>
       </div>
 
@@ -97,7 +97,7 @@ function ListingUI() {
           </div>
         </div>
 
-        <button className="w-full h-14 bg-primary rounded-2xl text-background font-bold text-sm shadow-[0_10px_30px_rgba(126,217,87,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+        <button className="w-full h-14 bg-primary rounded-2xl text-background font-black text-sm shadow-[0_10px_30px_rgba(46,125,50,0.2)] hover:translate-y-[-2px] active:scale-[0.98] transition-all cursor-pointer">
           Publish Listing
         </button>
       </div>
@@ -133,11 +133,11 @@ function BuyersUI() {
           <p className="text-[11px] text-primary font-bold uppercase tracking-wider">3 New Buyers Interested</p>
         </div>
         <motion.div
-          animate={{ scale: [1, 1.1, 1] }}
+          animate={{ scale: [1, 1.05, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="px-3 py-1.5 bg-red-500/20 border border-red-500/30 rounded-xl"
+          className="px-3 py-1.5 bg-red-500/10 border border-red-500/20 rounded-xl"
         >
-          <span className="text-[10px] text-red-400 font-bold uppercase tracking-wider">Live Requests</span>
+          <span className="text-[10px] text-red-500/60 font-black uppercase tracking-wider">Live Requests</span>
         </motion.div>
       </div>
 
@@ -148,11 +148,11 @@ function BuyersUI() {
             initial={{ x: 20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: i * 0.15 }}
-            className={`p-4 rounded-2xl ${demand.isBest ? 'bg-primary/10 border-primary/40' : 'bg-surface/50 border-border'} border backdrop-blur-xl flex items-center justify-between group cursor-pointer hover:bg-surface/80 transition-all shadow-lg`}
+            className={`p-4 rounded-2xl ${demand.isBest ? 'bg-primary/5 border-primary/30' : 'bg-surface/50 border-border'} border backdrop-blur-xl flex items-center justify-between group cursor-pointer hover:bg-surface/80 transition-all shadow-lg`}
           >
             <div className="flex items-center space-x-4">
               <div className={`w-10 h-10 rounded-full ${demand.isBest ? 'bg-primary/20' : 'bg-surface/30'} flex items-center justify-center border ${demand.isBest ? 'border-primary/30' : 'border-border'}`}>
-                <Briefcase size={18} className={demand.isBest ? 'text-primary' : 'text-text-primary/40'} />
+                <Building2 size={18} className={demand.isBest ? 'text-primary' : 'text-text-primary/40'} />
               </div>
               <div>
                 <h4 className="text-text-primary font-bold text-sm tracking-tight flex items-center">
@@ -179,7 +179,7 @@ function BuyersUI() {
               {i === 4 ? (
                 <span className="bg-primary text-background w-full h-full rounded-full flex items-center justify-center">+12</span>
               ) : (
-                <Briefcase size={16} className="text-text-primary/40" />
+                <Building2 size={16} className="text-text-primary/40" />
               )}
             </div>
           ))}
@@ -240,7 +240,7 @@ function GrowthUI() {
     <div className="w-full h-full flex flex-col justify-center space-y-6">
       <div className="flex items-center space-x-5 mb-4">
         <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/40 flex items-center justify-center shadow-2xl shadow-primary/30 border border-white/20">
-          <Briefcase size={36} className="text-background" strokeWidth={1.5} />
+          <Building2 size={36} className="text-background" strokeWidth={1.5} />
         </div>
         <div className="space-y-1">
           <h4 className="text-text-primary font-bold text-xl leading-none">Ramesh Patil</h4>
@@ -305,19 +305,19 @@ function StepVisual({ activeStep }: { activeStep: number }) {
           opacity: [0.3, 0.5, 0.3],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(126,217,87,0.1),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(46,125,50,0.05),transparent_60%)]"
       />
 
       {/* Enhanced Glow Reflector */}
-      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-full h-48 bg-primary/20 blur-[100px] opacity-30" />
+      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-full h-48 bg-primary/10 blur-[100px] opacity-20" />
 
       {/* Moving Shine - Slower & Subtler */}
       <motion.div
         animate={{
           background: [
-            "radial-gradient(600px circle at 0% 0%, rgba(126,217,87,0.04), transparent 70%)",
-            "radial-gradient(600px circle at 100% 100%, rgba(126,217,87,0.04), transparent 70%)",
-            "radial-gradient(600px circle at 0% 0%, rgba(126,217,87,0.04), transparent 70%)"
+            "radial-gradient(600px circle at 0% 0%, rgba(46,125,50,0.02), transparent 70%)",
+            "radial-gradient(600px circle at 100% 100%, rgba(46,125,50,0.02), transparent 70%)",
+            "radial-gradient(600px circle at 0% 0%, rgba(46,125,50,0.02), transparent 70%)"
           ]
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -371,10 +371,10 @@ function StepContent({ step, index, setActiveStep }: { step: any, index: number,
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl leading-[1.1] font-display text-text-primary transition-colors duration-500 text-wrap-balance">
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl leading-[0.95] font-black tracking-tighter text-text-primary transition-colors duration-500 text-wrap-balance">
             {step.title}
           </h2>
-          <p className="text-lg sm:text-xl text-text-secondary leading-relaxed max-w-lg mx-auto lg:mx-0 opacity-80 font-medium">
+          <p className="text-lg sm:text-xl text-text-secondary leading-relaxed max-w-lg mx-auto lg:mx-0 opacity-80">
             {step.description}
           </p>
         </div>

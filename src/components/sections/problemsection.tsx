@@ -65,28 +65,28 @@ function ProblemCard({ problem, index }: { problem: typeof PROBLEMS[0], index: n
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="problem-card group cursor-default"
-      whileHover={{ y: -4, scale: 1.01 }}
+      whileHover={{ y: -4 }}
     >
-      <div className="relative h-full p-8 sm:p-10 rounded-[2rem] border border-red-500/10 bg-surface/30 shadow-2xl dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] group-hover:dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:border-red-500/30 transition-all duration-200 overflow-hidden">
+      <div className="relative h-full p-8 sm:p-12 rounded-[2.5rem] border border-red-500/10 bg-surface/30 backdrop-blur-sm shadow-2xl transition-all duration-300 overflow-hidden hover:border-red-500/30">
         {/* Dynamic Red Spotlight */}
         <motion.div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
           style={{
             background: useTransform(
               [mouseX, mouseY],
-              ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(239, 68, 68, 0.1), transparent 70%)`
+              ([mx, my]) => `radial-gradient(circle at ${((mx as number) / 20 + 0.5) * 100}% ${((my as number) / -20 + 0.5) * 100}%, rgba(239, 68, 68, 0.08), transparent 70%)`
             ),
           }}
         />
         
-        <div className="relative z-10 space-y-6">
-          <div className="w-fit p-4 rounded-2xl bg-surface border border-border group-hover:bg-surface/80 transition-all duration-200">
-            <problem.icon className={`w-8 h-8 sm:w-10 sm:h-10 ${problem.color} group-hover:scale-110 transition-transform duration-200`} style={{ filter: `drop-shadow(0 0 12px ${problem.color.includes('red') ? 'rgba(239,68,68,0.4)' : problem.color.includes('orange') ? 'rgba(251,146,60,0.4)' : 'rgba(250,204,21,0.4)'})` }} />
+        <div className="relative z-10 space-y-6 sm:space-y-8">
+          <div className="w-fit p-4 rounded-xl bg-surface border border-border group-hover:bg-surface/80 transition-all duration-200">
+            <problem.icon className={`w-8 h-8 sm:w-12 sm:h-12 ${problem.color} group-hover:scale-110 transition-transform duration-300`} />
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">{problem.title}</h3>
-            <p className="text-text-secondary leading-relaxed text-sm sm:text-base">{problem.description}</p>
+            <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-text-primary leading-tight">{problem.title}</h3>
+            <p className="text-text-secondary leading-relaxed text-base sm:text-lg opacity-80">{problem.description}</p>
           </div>
         </div>
       </div>
@@ -147,11 +147,11 @@ export default function ProblemSection() {
       <div ref={sectionRef} className="w-full h-full">
         <Container>
         <div className="text-center mb-16 sm:mb-24">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight text-text-primary">
-            Traditional Agriculture <br />
-            <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent italic">is Broken.</span>
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.95] text-text-primary">
+            Traditional Agriculture <br className="hidden sm:block" />
+            <span className="opacity-30 italic">is Broken.</span>
           </h2>
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-text-secondary leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg sm:text-2xl text-text-secondary leading-relaxed opacity-80">
             The current system favors intermediaries over primary producers. 
             FarmZy is here to shift the power back to the fields.
           </p>

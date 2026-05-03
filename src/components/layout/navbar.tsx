@@ -7,12 +7,14 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Container from "../layout/container";
 import { ThemeToggle } from "../ui/theme-toggle";
+import { useWaitlist } from "../providers/waitlist-provider";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const { openModal } = useWaitlist();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +72,7 @@ export default function Navbar() {
           <div className="flex-1 flex justify-start">
             <Link
               href="/"
-              className="text-2xl font-bold tracking-tighter text-text-primary hover:opacity-80 transition-opacity"
+              className="text-2xl font-black tracking-tighter text-text-primary hover:opacity-80 transition-opacity"
             >
               Farm<span className="text-primary italic">Zy</span>
             </Link>
@@ -104,12 +106,12 @@ export default function Navbar() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
             >
-              <Link
-                href="/cta"
-                className="px-6 py-2.5 bg-primary text-background font-bold rounded-full text-sm hover:shadow-[0_0_20px_rgba(126,217,87,0.4)] transition-all duration-300 inline-block"
+              <button
+                onClick={openModal}
+                className="px-6 py-2.5 bg-primary text-background font-bold rounded-full text-sm hover:shadow-[0_0_20px_rgba(126,217,87,0.4)] transition-all duration-300 inline-block cursor-pointer"
               >
-                Get Started
-              </Link>
+                Join Waitlist
+              </button>
             </motion.div>
           </div>
 
@@ -146,13 +148,15 @@ export default function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Link
-                  href="/cta"
-                  onClick={() => setIsOpen(false)}
-                  className="block w-full py-4 bg-primary text-background font-bold rounded-xl text-center text-xl shadow-lg"
+                <button
+                  onClick={() => {
+                    setIsOpen(false);
+                    openModal();
+                  }}
+                  className="block w-full py-4 bg-primary text-background font-bold rounded-xl text-center text-xl shadow-lg cursor-pointer"
                 >
-                  Get Started
-                </Link>
+                  Join Waitlist
+                </button>
               </div>
             </motion.div>
           )}

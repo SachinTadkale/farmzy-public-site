@@ -6,8 +6,10 @@ import { ArrowRight, CheckCircle2, ShieldCheck, Zap, Globe, Mail } from "lucide-
 import Link from "next/link";
 import Container from "@/components/layout/container";
 import SectionWrapper from "@/components/layout/sectionwrapper";
+import { useWaitlist } from "@/components/providers/waitlist-provider";
 
 export default function CTAPage() {
+  const { openModal } = useWaitlist();
   const cardRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -77,22 +79,13 @@ export default function CTAPage() {
             {/* Hero Buttons with Coming Soon logic */}
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-12">
               <div className="w-full sm:w-auto">
-                <Link 
-                  href="/contact"
-                  className="group inline-flex items-center px-10 py-5 bg-primary text-background font-bold rounded-full text-lg shadow-[0_0_50px_rgba(126,217,87,0.3)] hover:shadow-[0_0_60px_rgba(126,217,87,0.5)] transition-all duration-300 w-full justify-center"
+                <button
+                  onClick={openModal}
+                  className="group inline-flex items-center px-10 py-5 bg-primary text-background font-bold rounded-full text-lg shadow-[0_0_50px_rgba(126,217,87,0.3)] hover:shadow-[0_0_60px_rgba(126,217,87,0.5)] transition-all duration-300 w-full justify-center cursor-pointer"
                 >
-                  Start Selling Directly
+                  Join Waitlist
                   <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
-                </Link>
-              </div>
-              
-              <div className="w-full sm:w-auto">
-                <Link 
-                  href="/contact"
-                  className="w-full block px-10 py-5 rounded-full border border-border bg-surface/50 backdrop-blur-md text-text-primary font-semibold text-lg hover:bg-surface transition-all duration-300 shadow-xl text-center"
-                >
-                  Join as Buyer
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -172,25 +165,15 @@ export default function CTAPage() {
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 pt-6">
                 <div className="relative group/btn w-full sm:w-auto">
                   <motion.button
+                    onClick={openModal}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                    className="w-full px-10 py-5 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(126,217,87,0.4)] transition-all duration-300"
+                    className="w-full px-10 py-5 rounded-full bg-primary text-background font-bold text-lg hover:bg-primary-hover hover:shadow-[0_0_40px_rgba(126,217,87,0.4)] transition-all duration-300 flex items-center justify-center cursor-pointer"
                   >
-                    <Link href="/contact" className="flex items-center justify-center">
-                      Start Selling Directly
-                      <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
-                    </Link>
+                    Join Waitlist
+                    <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
                   </motion.button>
-                </div>
-
-                <div className="w-full sm:w-auto">
-                  <Link
-                    href="/contact"
-                    className="w-full block px-10 py-5 rounded-full border border-border bg-surface/50 backdrop-blur-md text-text-primary font-semibold text-lg hover:bg-surface transition-all duration-300 shadow-xl text-center"
-                  >
-                    Join as Buyer
-                  </Link>
                 </div>
               </div>
 
