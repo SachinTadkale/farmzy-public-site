@@ -22,12 +22,11 @@ export interface WaitlistSuccessResponse {
 }
 
 const getBackendUrl = () => {
-  const backendUrl = 'http://localhost:5000';
+  const backendUrl =
+    process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api/v1";
 
   if (!backendUrl) {
-    throw new Error(
-      "NEXT_PUBLIC_BACKEND_URL is not configured for the public site.",
-    );
+    throw new Error("VITE_API_URL is not configured.");
   }
 
   return backendUrl.replace(/\/$/, "");
@@ -63,7 +62,7 @@ const getErrorMessage = (error: WaitlistApiError | null) => {
 };
 
 export async function joinWaitlist(payload: WaitlistPayload) {
-  const response = await fetch(`${getBackendUrl()}/api/leads`, {
+  const response = await fetch(`${getBackendUrl()}/leads`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

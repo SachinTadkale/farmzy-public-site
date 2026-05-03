@@ -11,17 +11,9 @@ import { joinWaitlist } from "@/services/waitlistService";
 import { WaitlistRole } from "@/services/waitlist.types";
 
 const waitlistSchema = z.object({
-  email: z
-    .string()
-    .trim()
-    .min(1, "Email is required")
-    .email("Invalid email format"),
+  email: z.string().email(),
   role: z.enum(["FARMER", "COMPANY"]),
-  name: z
-    .string()
-    .trim()
-    .optional()
-    .transform((value) => value || undefined),
+  name: z.string().optional(),
 });
 
 type WaitlistFormData = z.infer<typeof waitlistSchema>;
@@ -68,7 +60,10 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       {/* Name Field (Optional) */}
       <div className="space-y-1.5">
-        <label htmlFor="name" className="block text-sm font-bold text-text-primary px-1">
+        <label
+          htmlFor="name"
+          className="block text-sm font-bold text-text-primary px-1"
+        >
           Name (Optional)
         </label>
         <input
@@ -82,7 +77,10 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
 
       {/* Email Field */}
       <div className="space-y-1.5">
-        <label htmlFor="email" className="block text-sm font-bold text-text-primary px-1">
+        <label
+          htmlFor="email"
+          className="block text-sm font-bold text-text-primary px-1"
+        >
           Email Address <span className="text-primary">*</span>
         </label>
         <input
@@ -90,11 +88,16 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
           type="email"
           id="email"
           placeholder="name@example.com"
-          className={`w-full px-5 py-3 rounded-xl border bg-surface/50 backdrop-blur-sm text-text-primary outline-none transition-all duration-300 ${errors.email ? "border-red-500/50" : "border-border hover:border-primary/50"
-            } focus:border-primary focus:shadow-[0_0_15px_rgba(126,217,87,0.2)]`}
+          className={`w-full px-5 py-3 rounded-xl border bg-surface/50 backdrop-blur-sm text-text-primary outline-none transition-all duration-300 ${
+            errors.email
+              ? "border-red-500/50"
+              : "border-border hover:border-primary/50"
+          } focus:border-primary focus:shadow-[0_0_15px_rgba(126,217,87,0.2)]`}
         />
         {errors.email && (
-          <p className="text-xs font-bold text-red-500 px-1">{errors.email.message}</p>
+          <p className="text-xs font-bold text-red-500 px-1">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
@@ -136,8 +139,10 @@ export default function WaitlistForm({ onSuccess }: WaitlistFormProps) {
         {!isSubmitting && (
           <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
         )}
-        {isSubmitting && <Loader2 className="w-5 h-5 animate-spin relative z-10" />}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-750" />
+        {isSubmitting && (
+          <Loader2 className="w-5 h-5 animate-spin relative z-10" />
+        )}
+        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-750" />
       </motion.button>
     </form>
   );
